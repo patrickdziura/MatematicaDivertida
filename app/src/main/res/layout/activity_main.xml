@@ -8,20 +8,20 @@
     tools:context=".MainActivity" >
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnContagem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_height="120dp"
+        android:text="Contagem" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnAritmetica"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_height="120dp"
+        android:text="Aritmética Básica" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnMaior"
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:text="Button" />
+        android:layout_height="120dp"
+        android:text="Maior número" />
 </LinearLayout>
