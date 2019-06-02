@@ -48,7 +48,6 @@ public class AritmeticaBasica extends AppCompatActivity {
             operador.setText("-");
             resultado = operando1 - operando2;
         }
-        System.out.println(resultado);
     }
 
     public void verificaResultado (View view) {

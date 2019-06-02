@@ -1,5 +1,7 @@
 package com.example.matematicadivertida;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -68,10 +70,50 @@ public class MaiorNumero extends AppCompatActivity {
             }
         }
         maiornumero = (100 * m1) + (10 * m2) + m3;
-        System.out.println(maiornumero);
     }
 
     public void verificaMaior(View view) {
+        EditText result = (EditText) findViewById(R.id.editResultado);
+        int intresult = Integer.parseInt(result.getText().toString());
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog alert;
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (count >= 5) {
+                    criaDialogFinal();
+                } else {
+                    count++;
+                    geraProblema();
+                }
+            }
+        });
+        if (intresult == maiornumero) {
+            builder.setTitle("Resultado Correto");
+            builder.setMessage("O resultado está correto!");
+            alert = builder.create();
+            alert.show();
+            acertos++;
+            //new AlertDialog.Builder(this).setTitle("Resultado Correto").setMessage("O resultado está correto!");
+        } else {
+            builder.setTitle("Resultado Errado");
+            builder.setMessage("O resultado correto é: " + String.valueOf(maiornumero));
+            alert = builder.create();
+            alert.show();
+        }
+    }
 
+    private void criaDialogFinal() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Fim!");
+        builder.setMessage("Você acertou " + String.valueOf(acertos) + " de 5.");
+        builder.setPositiveButton("Voltar ao menu", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }
