@@ -24,5 +24,6 @@
         android:id="@+id/btnMaior"
         android:layout_width="match_parent"
         android:layout_height="120dp"
+        android:onClick="goMaiorNumero"
         android:text="Maior número" />
 </LinearLayout>
