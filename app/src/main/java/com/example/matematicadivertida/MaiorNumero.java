@@ -106,7 +106,8 @@ public class MaiorNumero extends AppCompatActivity {
     private void criaDialogFinal() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Fim!");
-        builder.setMessage("Você acertou " + String.valueOf(acertos) + " de 5.");
+        int porcentagem = acertos * 20;
+        builder.setMessage("Você acertou " + String.valueOf(porcentagem) + "%.");
         builder.setPositiveButton("Voltar ao menu", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
