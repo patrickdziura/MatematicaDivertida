@@ -17,7 +17,8 @@
         android:id="@+id/btnAritmetica"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:text="Aritmética Básica" />
+        android:text="Aritmética Básica"
+        android:onClick="goAritmetica"/>
 
     <Button
         android:id="@+id/btnMaior"
