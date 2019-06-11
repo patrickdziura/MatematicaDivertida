@@ -4,12 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Contagem">
 
     <TextView
+        android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello Contagem"
+        android:text="Escolha a opção que representa a quantidade de itens na imagem"
         android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/randomImageView"
+        android:layout_width="600px"
+        android:layout_height="600px"
+        android:layout_gravity="center"
+        android:layout_marginTop="100px"
+        android:layout_marginBottom="100px"/>
+
+    <Button
+        android:id="@+id/firstButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="generateRandomImage"/>
+
+    <Button
+        android:id="@+id/secondButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="generateRandomImage"/>
+
+    <Button
+        android:id="@+id/thirdButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="generateRandomImage"/>
 
 </android.widget.LinearLayout>
