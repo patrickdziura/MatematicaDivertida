@@ -12,47 +12,69 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class AritmeticaBasica extends AppCompatActivity {
+public class MaiorNumero extends AppCompatActivity {
 
-    int resultado;
     int acertos;
     int count;
+    int maiornumero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aritmetica_basica);
-        acertos = 0;
+        setContentView(R.layout.activity_maior_numero);
         count = 1;
-        geraConta();
+        acertos = 0;
+        geraProblema();
     }
 
-
-
-    private void geraConta() {
+    private void geraProblema() {
+        int m1 = 0, m2 = 0, m3 = 0;
+        EditText num1 = (EditText) findViewById(R.id.editNum1);
+        EditText num2 = (EditText) findViewById(R.id.editNum2);
+        EditText num3 = (EditText) findViewById(R.id.editNum3);
+        EditText maiornum = (EditText) findViewById(R.id.editResultado);
         TextView titulo = (TextView) findViewById(R.id.txtTitulo);
-        EditText op1 = (EditText) findViewById(R.id.editOp1);
-        EditText op2 = (EditText) findViewById(R.id.editOp2);
-        EditText operador = (EditText) findViewById(R.id.editOperador);
-        EditText aux = (EditText) findViewById(R.id.editResultado);
-        aux.setText("");
         titulo.setText("Pergunta " + String.valueOf(count) + " de 5: ");
+        maiornum.setText("");
         Random r = new Random();
-        int operando1 = r.nextInt(10);
-        int operando2 = r.nextInt(10);
-        int opaux = r.nextInt(2);
-        op1.setText(Integer.toString(operando1));
-        op2.setText(Integer.toString(operando2));
-        if (opaux == 0) {
-            operador.setText("+");
-            resultado = operando1 + operando2;
-        } else {
-            operador.setText("-");
-            resultado = operando1 - operando2;
+        int n1 = r.nextInt(10);
+        int n2 = r.nextInt(10);
+        int n3 = r.nextInt(10);
+        num1.setText(Integer.toString(n1));
+        num2.setText(Integer.toString(n2));
+        num3.setText(Integer.toString(n3));
+        if (n1 >= n2 && n1 >= n3) {
+            m1 = n1;
+            if (n2 >= n3) {
+                m2 = n2;
+                m3 = n3;
+            } else {
+                m2 = n3;
+                m3 = n2;
+            }
+        } else if (n2 >= n1 && n2 >= n3) {
+            m1 = n2;
+            if (n1 >= n3) {
+                m2 = n1;
+                m3 = n3;
+            } else {
+                m2 = n3;
+                m3 = n1;
+            }
+        } else if (n3 >= n1 && n3 >= n2) {
+            m1 = n3;
+            if (n1 >= n2) {
+                m2 = n1;
+                m3 = n2;
+            } else {
+                m2 = n2;
+                m3 = n1;
+            }
         }
+        maiornumero = (100 * m1) + (10 * m2) + m3;
     }
 
-    public void verificaResultado (View view) {
+    public void verificaMaior(View view) {
         EditText result = (EditText) findViewById(R.id.editResultado);
         if(TextUtils.isEmpty(result.getText().toString())) {
             Toast.makeText(this, "Digite algum número", Toast.LENGTH_LONG).show();
@@ -67,11 +89,11 @@ public class AritmeticaBasica extends AppCompatActivity {
                         criaDialogFinal();
                     } else {
                         count++;
-                        geraConta();
+                        geraProblema();
                     }
                 }
             });
-            if (intresult == resultado) {
+            if (intresult == maiornumero) {
                 builder.setTitle("Resultado Correto");
                 builder.setMessage("O resultado está correto!");
                 alert = builder.create();
@@ -80,7 +102,7 @@ public class AritmeticaBasica extends AppCompatActivity {
                 //new AlertDialog.Builder(this).setTitle("Resultado Correto").setMessage("O resultado está correto!");
             } else {
                 builder.setTitle("Resultado Errado");
-                builder.setMessage("O resultado correto é: " + String.valueOf(resultado));
+                builder.setMessage("O resultado correto é: " + String.valueOf(maiornumero));
                 alert = builder.create();
                 alert.show();
             }
