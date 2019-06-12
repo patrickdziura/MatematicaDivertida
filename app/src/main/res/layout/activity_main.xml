@@ -11,7 +11,8 @@
         android:id="@+id/btnContagem"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:text="Contagem" />
+        android:text="Contagem"
+        android:onClick="goContagem"/>
 
     <Button
         android:id="@+id/btnAritmetica"
