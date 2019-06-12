@@ -26,18 +26,18 @@
         android:id="@+id/firstButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="generateAll"/>
+        android:onClick="firstClick"/>
 
     <Button
         android:id="@+id/secondButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="generateAll"/>
+        android:onClick="secondClick"/>
 
     <Button
         android:id="@+id/thirdButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="generateAll"/>
+        android:onClick="thirdClick"/>
 
 </android.widget.LinearLayout>
