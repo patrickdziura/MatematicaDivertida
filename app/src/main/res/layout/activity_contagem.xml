@@ -16,8 +16,8 @@
 
     <ImageView
         android:id="@+id/randomImageView"
-        android:layout_width="600px"
-        android:layout_height="600px"
+        android:layout_width="300px"
+        android:layout_height="300px"
         android:layout_gravity="center"
         android:layout_marginTop="100px"
         android:layout_marginBottom="100px"/>
@@ -26,18 +26,18 @@
         android:id="@+id/firstButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="generateRandomImage"/>
+        android:onClick="generateAll"/>
 
     <Button
         android:id="@+id/secondButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="generateRandomImage"/>
+        android:onClick="generateAll"/>
 
     <Button
         android:id="@+id/thirdButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="generateRandomImage"/>
+        android:onClick="generateAll"/>
 
 </android.widget.LinearLayout>

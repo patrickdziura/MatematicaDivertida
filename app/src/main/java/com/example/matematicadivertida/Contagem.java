@@ -13,9 +13,9 @@ public class Contagem extends AppCompatActivity {
 
     TextView titleTextView;
     ImageView randomImageView;
-    Button firstButton,secondButton, thirdButton;
+    Button firstButton,secondButton,thirdButton;
 
-    Integer[] imageId = {
+    Integer[] images = {
             R.drawable.one_image,
             R.drawable.two_image,
             R.drawable.three_image,
@@ -39,16 +39,38 @@ public class Contagem extends AppCompatActivity {
         secondButton = findViewById(R.id.secondButton);
         thirdButton = findViewById(R.id.thirdButton);
 
-        View view = null;
-        generateRandomImage(view);
+        generateAll(new View(this));
 
     }
 
-    public void generateRandomImage(View view) {
+    public void generateAll(View view){
+
+        int number = generateRandomImage(new View(this));
+        number++;
+        generateNumbers(new View(this),number);
+    }
+
+    public int generateRandomImage(View view) {
 
         Random random = new Random();
         int number = random.nextInt(10);
-        randomImageView.setImageResource(imageId[number]);
+        randomImageView.setImageResource(images[number]);
+
+        return number;
+
+    }
+
+    public void generateNumbers(View view, int number) {
+
+        Random random = new Random();
+        int buttonumber = random.nextInt(3);
+        int[] buttonumberarray = {0,0,0};
+
+        buttonumberarray[buttonumber] = number;
+
+        firstButton.setText(Integer.toString(buttonumberarray[0]));
+        secondButton.setText(Integer.toString(buttonumberarray[1]));
+        thirdButton.setText(Integer.toString(buttonumberarray[2]));
 
     }
 
